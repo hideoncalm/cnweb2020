@@ -1,26 +1,21 @@
 package com.cnweb2020.Json2Model;
 
 
-public class UserJsonModel{
+public class UserJsonModel extends CodeAndMessage{
 
     private String userId;
-    private int code;
-    private String message;
     private String userName;
 
     public UserJsonModel(int code, String message, String userId) {
-        this.userId = userId;
-        this.code = code;
-        this.message = message;
+        super(code, message);
+       this.userId = userId;
     }
 
     public UserJsonModel(int code, String message) {
-        this.code = code;
-        this.message = message;
+        super(code, message);
     }
     public UserJsonModel(int code, String message, String userId, String userName){
-        this.code = code;
-        this.message = message;
+        super(code, message);
         this.userId = userId;
         this.userName = userName;
     }
@@ -30,22 +25,6 @@ public class UserJsonModel{
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public String getUserName() {
