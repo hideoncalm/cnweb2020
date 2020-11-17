@@ -21,10 +21,8 @@ public class UpdateProductInCart extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, IOException{
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        ObjectMapper objectMapper = new ObjectMapper();
-        
-        UpdateProductInCartModel update = Json2Model.of(request.getReader()).toModel(UpdateProductInCartModel.class);
-        
+        ObjectMapper objectMapper = new ObjectMapper();        
+        UpdateProductInCartModel update = Json2Model.of(request.getReader()).toModel(UpdateProductInCartModel.class);  
         ProductInOrderJsonModel model = service.updateProductInCart(update);
         objectMapper.writeValue(response.getOutputStream(), model);
         
