@@ -7,6 +7,33 @@ public class OrdersModel {
     private int userId;
     private int type;
     private Timestamp time;
+    private String address;
+    private String phone;
+    private String personTakeOrder;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPersonTakeOrder() {
+        return personTakeOrder;
+    }
+
+    public void setPersonTakeOrder(String personTakeOrder) {
+        this.personTakeOrder = personTakeOrder;
+    }
 
     public int getId() {
         return id;

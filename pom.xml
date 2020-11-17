@@ -8,6 +8,7 @@
     <name>cnweb2020</name>
     
     <properties>
+        <weld.servlet.version>2.4.8.Final</weld.servlet.version>
         <javax.inject.version>1</javax.inject.version>
         <mysql.version>8.0.16</mysql.version>
         <java.servlet.version>3.1.0</java.servlet.version>
@@ -17,6 +18,11 @@
     </properties>
     
     <dependencies>
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet</artifactId>
+            <version>${weld.servlet.version}</version>
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>

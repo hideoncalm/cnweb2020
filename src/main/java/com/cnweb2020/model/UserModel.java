@@ -1,6 +1,6 @@
 package com.cnweb2020.model;
 
-public class UserModel {
+public class UserModel{
     private int id;
     private String account;
     private String password;

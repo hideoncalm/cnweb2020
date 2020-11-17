@@ -17,6 +17,9 @@ public class OrdersMapper implements RowMapper<OrdersModel>{
             ordersModel.setTime(resultSet.getTimestamp("time"));
             ordersModel.setType(resultSet.getInt("type"));
             ordersModel.setUserId(resultSet.getInt("userId"));
+            ordersModel.setAddress(resultSet.getString("address"));
+            ordersModel.setPersonTakeOrder(resultSet.getString("personTakeOrder"));
+            ordersModel.setPhone(resultSet.getString("phone"));
             return ordersModel;
         } catch (SQLException ex) {
             Logger.getLogger(OrdersMapper.class.getName()).log(Level.SEVERE, null, ex);

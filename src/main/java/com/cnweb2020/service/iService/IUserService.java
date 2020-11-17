@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cnweb2020.service.iService;
-
+import com.cnweb2020.Json2Model.UserJsonModel;
 import com.cnweb2020.model.UserModel;
-import java.util.List;
 
-/**
- *
- * @author quyenhaha
- */
 public interface IUserService {
-    List<UserModel> findAll();
-    boolean findUserByAccount(String userAccount, String password);
+    UserJsonModel login(String userAccount, String password); // tra ve id or -1
+    UserJsonModel creatUser(UserModel userModel);  // tra ve -1 neu khong them thanh cong
+    UserJsonModel findUserById(int id);  // get user info
 }

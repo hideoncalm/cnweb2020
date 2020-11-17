@@ -1,11 +1,20 @@
 package com.cnweb2020.model;
-public class ProductModel {
+public class ProductModel{
     private int id;
     private String name;
     private String description;
     private String image;
     private int price;
     private String category;
+    private int quantity;
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     public int getId() {
         return id;
