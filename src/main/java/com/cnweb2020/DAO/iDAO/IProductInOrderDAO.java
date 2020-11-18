@@ -12,6 +12,7 @@ import com.cnweb2020.model.ProductInOrder;
  * @author quyenhaha
  */
 public interface IProductInOrderDAO extends IGenericDAO<ProductInOrder>{
-    void updateProductInCart(int orderId, int productId, String type);
-    public boolean findByOrderIdAndProductId(int orderId, int productId);
+    boolean updateProductInCart(int orderId, int productId, String type);
+    boolean findByOrderIdAndProductId(int orderId, int productId);
+    boolean findByOrderId(int orderId);
 }

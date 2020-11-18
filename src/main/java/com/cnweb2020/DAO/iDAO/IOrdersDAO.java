@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface IOrdersDAO extends IGenericDAO<OrdersModel>{
     List<ProductModel> getAllProductInCartByUserId(int userId);
-    OrdersModel findOrderByUserId(int userId);
+    List<OrdersModel> findOrderByUserIdAndType(int userId, int type);
     void insert(OrdersModel ordersModel);
+    void updateOrderPayment(OrdersModel ordersModel);
 }

@@ -17,7 +17,7 @@ create table product(
     category varchar(50) not null
 );
 create table orders(
-	id int not null primary key auto_increment,
+    id int not null primary key auto_increment,
     userId int not null,
     type int not null,
     time timestamp null

@@ -28,12 +28,14 @@
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/mapper/OrdersMapper.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/service/iService/IUserService.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/DAO/AbstractDAO.java
+/home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/restAPI/CheckoutWithDefaultInfo.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/DAO/iDAO/IOrdersDAO.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/model/ProductInOrder.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/DAO/iDAO/IUserDAO.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/Json2Model/ProductJsonModel.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/restAPI/GetUserInfo.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/model/UserModel.java
+/home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/restAPI/CheckoutWithNewInfo.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/mapper/ProductInOrderMapper.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/Json2Model/UserJsonModel.java
 /home/quyenhaha/NetBeansProjects/cnweb2020/src/main/java/com/cnweb2020/DAO/OrdersDAO.java

@@ -15,11 +15,11 @@ public class OrdersDAO extends AbstractDAO<OrdersModel> implements IOrdersDAO {
     @Override
     public List<ProductModel> getAllProductInCartByUserId(int userId) {
         List<ProductModel> productModels = new ArrayList<>();
-        OrdersModel ordersModel = findOrderByUserId(userId);
-        if (ordersModel == null) {
+        List<OrdersModel> orders = findOrderByUserIdAndType(userId, 0);
+        if (orders.isEmpty()) {
             return null;
         } else {
-            int orderId = ordersModel.getId();
+            int orderId = orders.get(0).getId();
             String sql = "select * from productInOrder where orderId = ?";
 
             // products gom 3 thanh phan userId, orderId, quatity
@@ -34,15 +34,11 @@ public class OrdersDAO extends AbstractDAO<OrdersModel> implements IOrdersDAO {
     }
 
     @Override
-    public OrdersModel findOrderByUserId(int userId) {
-        String sql = "select * from orders where userId = ?";
-        List<OrdersModel> orders;
-        orders = query(sql, new OrdersMapper(), userId);
-        if (orders.isEmpty()) {
-            return null;
-        } else {
-            return orders.get(0);
-        }
+    public List<OrdersModel> findOrderByUserIdAndType(int userId, int type) {
+        String sql = "select * from orders where userId = ? and type = ?";
+        List<OrdersModel> orders = null;
+        orders = query(sql, new OrdersMapper(), userId, type);
+        return orders;
     }
 
     public ProductModel findProductById(int productId) {
@@ -54,6 +50,13 @@ public class OrdersDAO extends AbstractDAO<OrdersModel> implements IOrdersDAO {
     public void insert(OrdersModel ordersModel) {
         String sql = "insert into orders(userId, type) values(?, ?)";
         update(sql, ordersModel.getUserId(), ordersModel.getType());
+    }
+
+    @Override
+    public void updateOrderPayment(OrdersModel ordersModel) {
+        String sql = "update orders set personTakeOrder = ?, phone = ?, address = ?, type = ?, time = ? where id = ?";
+        update(sql, ordersModel.getPersonTakeOrder(), ordersModel.getPhone(), ordersModel.getAddress(),
+                ordersModel.getType(), ordersModel.getTime(), ordersModel.getId());
     }
 
 }
