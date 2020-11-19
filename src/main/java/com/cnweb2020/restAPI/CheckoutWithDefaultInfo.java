@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "api-checkout-with-default-info")
+@WebServlet(urlPatterns = "/api-checkout-with-default-info")
 public class CheckoutWithDefaultInfo extends HttpServlet {
 
     @Inject
