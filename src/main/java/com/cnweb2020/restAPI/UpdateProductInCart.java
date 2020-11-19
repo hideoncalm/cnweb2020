@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(urlPatterns = "/api-checkout_with_new_info")
+@WebServlet(urlPatterns = "/api-update-product-in-cart")
 public class UpdateProductInCart extends HttpServlet{
     @Inject
     private IProductInOrderService service;

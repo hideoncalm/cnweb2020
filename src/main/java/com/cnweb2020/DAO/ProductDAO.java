@@ -4,7 +4,6 @@ package com.cnweb2020.DAO;
 import com.cnweb2020.DAO.iDAO.IProductDAO;
 import com.cnweb2020.mapper.ProductMapper;
 import com.cnweb2020.model.ProductModel;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO{
@@ -23,7 +22,7 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
 
     @Override
     public ProductModel findById(int productId) {
-        List<ProductModel> products = new ArrayList<>();
+        List<ProductModel> products;
         String sql = "select * from product where id = ?";
         products = query(sql, new ProductMapper(), productId);
         if(products.isEmpty()) return null;
