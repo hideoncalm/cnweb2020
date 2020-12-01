@@ -44,5 +44,12 @@ public class ProductService implements IProductService{
         }
     }
 
+    @Override
+    public ProductJsonModel findByName(String productName) {
+        List<ProductModel> products = productDAO.findByName(productName);
+        if(products.isEmpty()) return new ProductJsonModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_NOTFOUND_PRODUCT, products);
+        else return new ProductJsonModel(CodeAndMessage.SUCCESS, CodeAndMessage.SUCCESS_MESSAGE, products);
+    }
+
 
 }

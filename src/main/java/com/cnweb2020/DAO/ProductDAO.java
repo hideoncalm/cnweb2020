@@ -28,5 +28,14 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
         if(products.isEmpty()) return null;
         return products.get(0);
     }
-  
+
+    @Override
+    public List<ProductModel> findByName(String productName) {
+        List<ProductModel> products;
+        String sql = "select * from product where name = ?";
+        products = query(sql, new ProductMapper(), productName);
+        if(products.isEmpty()) return null;
+        else return products;
+    }
+
 }

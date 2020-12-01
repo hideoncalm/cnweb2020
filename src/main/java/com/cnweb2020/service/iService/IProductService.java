@@ -8,4 +8,6 @@ public interface IProductService {
     ProductJsonModel findbyCategory(String category);
 
     ProductJsonModel findById(int id);
+
+    ProductJsonModel findByName(String productName);
 }
