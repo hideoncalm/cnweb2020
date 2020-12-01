@@ -2,7 +2,7 @@
 package com.cnweb2020.restAPI;
 
 import com.cnweb2020.Json2Model.Json2Model;
-import com.cnweb2020.Json2Model.UserJsonModel;
+import com.cnweb2020.Json2Model.JsonReturnModel;
 import com.cnweb2020.model.UserModel;
 import com.cnweb2020.service.iService.IUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,7 +25,7 @@ public class GetUserInfo extends HttpServlet{
         
         UserModel userModel = Json2Model.of(request.getReader()).toModel(UserModel.class);
         int id = userModel.getId();
-        UserJsonModel userJsonModel = userService.findUserById(id);
+        JsonReturnModel userJsonModel = userService.findUserById(id);
         objectMapper.writeValue(response.getOutputStream(), userJsonModel);
         
     }

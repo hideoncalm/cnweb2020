@@ -11,6 +11,6 @@ import java.util.List;
 public interface IProductDAO extends IGenericDAO<ProductModel>{
     List<ProductModel> findAll(); // tra ve danh sach san pham 
     List<ProductModel> findByCategory(String category);
-    ProductModel findById(int productId);
+    List<ProductModel> findById(int productId);
     List<ProductModel> findByName(String productName);
 }

@@ -1,12 +1,11 @@
 package com.cnweb2020.service.iService;
 
-import com.cnweb2020.Json2Model.CodeAndMessage;
-import com.cnweb2020.Json2Model.ProductJsonModel;
+import com.cnweb2020.Json2Model.JsonReturnModel;
 import com.cnweb2020.model.OrdersModel;
 
 public interface IOrdersService {
 
-    ProductJsonModel getAllProductInCartByUserId(int userId);
-    CodeAndMessage checkoutWithNewInfo(OrdersModel ordersModel);
-    CodeAndMessage checkoutWithDefaultInfo(OrdersModel ordersModel);
+    JsonReturnModel getAllProductInCartByUserId(int userId);
+    JsonReturnModel checkoutWithNewInfo(OrdersModel ordersModel);
+    JsonReturnModel checkoutWithDefaultInfo(OrdersModel ordersModel);
 }

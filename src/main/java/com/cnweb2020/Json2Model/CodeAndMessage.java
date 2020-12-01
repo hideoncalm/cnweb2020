@@ -5,7 +5,6 @@ public class CodeAndMessage {
     public static final int SUCCESS = 200;
     public static final int DATA_INVALID = 401;
     public static final int DATA_DUPLICATED = 402;
-
     public static final int DATA_NOTFOUND = 404;
 
     public static final String SUCCESS_MESSAGE = "Success";
@@ -21,6 +20,7 @@ public class CodeAndMessage {
     public static final String DATA_NOTFOUND_CATEGORY = "Category not found";
     public static final String DATA_NOTFOUND_PRODUCT = "ProductID not found";
     public static final String DATA_NOTFOUND_PRODUCTINCART = "Product is not exit in cart";
+
     private int code;
     private String message;
 
@@ -28,7 +28,7 @@ public class CodeAndMessage {
         this.code = code;
         this.message = message;
     }
-    
+
     public int getCode() {
         return code;
     }
@@ -44,5 +44,4 @@ public class CodeAndMessage {
     public void setMessage(String message) {
         this.message = message;
     }
-    
 }

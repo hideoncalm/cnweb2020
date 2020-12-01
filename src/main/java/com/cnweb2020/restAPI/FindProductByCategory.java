@@ -1,7 +1,7 @@
 package com.cnweb2020.restAPI;
 
 import com.cnweb2020.Json2Model.Json2Model;
-import com.cnweb2020.Json2Model.ProductJsonModel;
+import com.cnweb2020.Json2Model.JsonReturnModel;
 import com.cnweb2020.model.ProductModel;
 import com.cnweb2020.service.iService.IProductService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,7 +25,7 @@ public class FindProductByCategory extends HttpServlet {
         
         ProductModel productModel = Json2Model.of(request.getReader()).toModel(ProductModel.class);
         String category = productModel.getCategory();
-        ProductJsonModel productJsonModel = productService.findbyCategory(category);
+        JsonReturnModel productJsonModel = productService.findByCategory(category);
         objectMapper.writeValue(response.getOutputStream(), productJsonModel);
     }
 }

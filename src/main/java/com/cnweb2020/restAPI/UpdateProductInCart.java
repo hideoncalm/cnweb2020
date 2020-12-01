@@ -1,7 +1,7 @@
 package com.cnweb2020.restAPI;
 
 import com.cnweb2020.Json2Model.Json2Model;
-import com.cnweb2020.Json2Model.ProductInOrderJsonModel;
+import com.cnweb2020.Json2Model.JsonReturnModel;
 import com.cnweb2020.Json2Model.UpdateProductInCartModel;
 import com.cnweb2020.service.iService.IProductInOrderService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,7 +23,7 @@ public class UpdateProductInCart extends HttpServlet{
         response.setContentType("application/json");
         ObjectMapper objectMapper = new ObjectMapper();        
         UpdateProductInCartModel update = Json2Model.of(request.getReader()).toModel(UpdateProductInCartModel.class);  
-        ProductInOrderJsonModel model = service.updateProductInCart(update);
+        JsonReturnModel model = service.updateProductInCart(update);
         objectMapper.writeValue(response.getOutputStream(), model);
         
     }

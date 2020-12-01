@@ -1,6 +1,6 @@
 package com.cnweb2020.restAPI;
 
-import com.cnweb2020.Json2Model.ProductJsonModel;
+import com.cnweb2020.Json2Model.JsonReturnModel;
 import com.cnweb2020.service.iService.IProductService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -19,8 +19,8 @@ public class GetAllProductAPI extends HttpServlet{
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         ObjectMapper objectMapper = new ObjectMapper();
-        
-        ProductJsonModel productJsonModel = productService.findAll();
+
+        JsonReturnModel productJsonModel = productService.findAll();
         objectMapper.writeValue(response.getOutputStream(), productJsonModel);
     } 
 }

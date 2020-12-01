@@ -21,12 +21,11 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
     }
 
     @Override
-    public ProductModel findById(int productId) {
+    public List<ProductModel> findById(int productId) {
         List<ProductModel> products;
         String sql = "select * from product where id = ?";
         products = query(sql, new ProductMapper(), productId);
-        if(products.isEmpty()) return null;
-        return products.get(0);
+        return products;
     }
 
     @Override
@@ -34,8 +33,7 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
         List<ProductModel> products;
         String sql = "select * from product where name = ?";
         products = query(sql, new ProductMapper(), productName);
-        if(products.isEmpty()) return null;
-        else return products;
+        return products;
     }
 
 }

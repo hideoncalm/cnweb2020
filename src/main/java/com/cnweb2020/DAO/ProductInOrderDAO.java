@@ -29,7 +29,6 @@ public class ProductInOrderDAO extends AbstractDAO<ProductInOrder> implements IP
                 p.setQuantity(quantity + 1);
                 update(sql_update, p.getQuantity(), p.getOrderId(), p.getProductId());
             }
-            return true;
         } else {
             if (productInOrder.isEmpty()) return false;
             p = productInOrder.get(0);
@@ -40,9 +39,8 @@ public class ProductInOrderDAO extends AbstractDAO<ProductInOrder> implements IP
                 p.setQuantity(quantity - 1);
                 update(sql_update, p.getQuantity(), p.getOrderId(), p.getProductId());
             }
-            return true;
         }
-
+        return true;
     }
 
     @Override
@@ -57,7 +55,7 @@ public class ProductInOrderDAO extends AbstractDAO<ProductInOrder> implements IP
     @Override
     public boolean findByOrderId(int orderId) {
         String sql = "select * from productInOrder where orderId = ?";
-        List<ProductInOrder> products = new ArrayList<>();
+        List<ProductInOrder> products;
         products = query(sql, new ProductInOrderMapper(), orderId);
         if(products.isEmpty()) return false;
         else return true;

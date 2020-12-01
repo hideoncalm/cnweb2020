@@ -21,8 +21,7 @@ public class OrdersDAO extends AbstractDAO<OrdersModel> implements IOrdersDAO {
         } else {
             int orderId = orders.get(0).getId();
             String sql = "select * from productInOrder where orderId = ?";
-
-            // products gom 3 thanh phan userId, orderId, quatity
+            // products gom 3 thanh phan productId, orderId, quatity
             List<ProductInOrder> products = query(sql, new ProductInOrderMapper(), orderId);
             for (ProductInOrder productInOrder : products) {
                 ProductModel productModel = findProductById(productInOrder.getProductId());

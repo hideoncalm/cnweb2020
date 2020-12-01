@@ -1,8 +1,7 @@
 package com.cnweb2020.restAPI;
 
-import com.cnweb2020.Json2Model.CodeAndMessage;
 import com.cnweb2020.Json2Model.Json2Model;
-import com.cnweb2020.Json2Model.ProductJsonModel;
+import com.cnweb2020.Json2Model.JsonReturnModel;
 import com.cnweb2020.model.ProductModel;
 import com.cnweb2020.service.iService.IProductService;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -25,7 +24,7 @@ public class GetProductDetail extends HttpServlet {
 
         ProductModel productModel = Json2Model.of(request.getReader()).toModel(ProductModel.class);
         int id = productModel.getId();
-        ProductJsonModel code = service.findById(id);
+        JsonReturnModel code = service.findById(id);
         objectMapper.writeValue(response.getOutputStream(), code);
     }
 }
