@@ -18,7 +18,7 @@ public class CodeAndMessage {
     public static final String DATA_NOTFOUND_PASSWORD = "Password is incorrect";
     public static final String DATA_NOTFOUND_USERID = "User ID not found";
     public static final String DATA_NOTFOUND_CATEGORY = "Category not found";
-    public static final String DATA_NOTFOUND_PRODUCT = "ProductID not found";
+    public static final String DATA_NOTFOUND_PRODUCT = "Product not found";
     public static final String DATA_NOTFOUND_PRODUCTINCART = "Product is not exit in cart";
 
     private int code;

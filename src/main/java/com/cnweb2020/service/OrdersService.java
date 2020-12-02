@@ -31,16 +31,22 @@ public class OrdersService implements IOrdersService{
 
     @Override
     public JsonReturnModel checkoutWithNewInfo(OrdersModel ordersModel) {
+        String address = ordersModel.getAddress();
+        String personTakeOrder = ordersModel.getPersonTakeOrder();
+        String phone = ordersModel.getPhone();
+        if(address.contains("<script>") || personTakeOrder.contains("<script>") || phone.contains("<script>"))
+            return new JsonReturnModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_INVALID_EMAIL,null);
         int userId = ordersModel.getUserId();
         List<OrdersModel> orders = ordersDAO.findOrderByUserIdAndType(userId, 0);
         if(orders.isEmpty()) return new JsonReturnModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_NOTFOUND_USERID,null);
         else{
             OrdersModel order = orders.get(0);
             // cart rong
-            if(!productInOrderDAO.findByOrderId(order.getId())) return new JsonReturnModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_NOTFOUND_PRODUCTINCART, null);
-            order.setAddress(ordersModel.getAddress());
-            order.setPersonTakeOrder(ordersModel.getPersonTakeOrder());
-            order.setPhone(ordersModel.getPhone());
+            if(!productInOrderDAO.findByOrderId(order.getId()))
+                return new JsonReturnModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_NOTFOUND_PRODUCTINCART, null);
+            order.setAddress(address);
+            order.setPersonTakeOrder(personTakeOrder);
+            order.setPhone(phone);
             order.setType(1);
             order.setTime(new Timestamp(new Date().getTime()));
             // update thong tin order chuyen type = 1 va tao ra 1 order moi co type = 0
