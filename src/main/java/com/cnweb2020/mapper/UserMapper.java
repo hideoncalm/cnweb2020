@@ -22,6 +22,7 @@ public class UserMapper implements RowMapper<UserModel> {
         try {
             UserModel userModel = new UserModel();
             userModel.setId(resultSet.getInt("id"));
+            userModel.setRole(resultSet.getInt("role"));
             userModel.setFullName(resultSet.getString("fullName"));
             userModel.setAccount(resultSet.getString("account"));
             userModel.setPassword(resultSet.getString("password"));

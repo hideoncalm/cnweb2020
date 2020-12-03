@@ -8,10 +8,11 @@ public class CodeAndMessage {
     public static final int DATA_NOTFOUND = 404;
 
     public static final String SUCCESS_MESSAGE = "Success";
+    public static final String DATA_INVALID_JSON = "Json FAIL";
     public static final String DATA_INVALID_USERNAME = "User name is invalid";
-    public static final String DATA_INVALID_PASSWORD = "Password is invalid ";
+    public static final String DATA_INVALID_PASSWORD = "User or Password is invalid ";
     public static final String DATA_INVALID_PHONE = "Phone is invalid";
-    public static final String DATA_INVALID_EMAIL = "Email is invalid";
+    public static final String DATA_INVALID_EMAIL = "Something is invalid";
     public static final String DATA_DUPLICATED_USERNAME = "Username has been used";
     public static final String DATA_DUPLICATED_PHONE = "Phone has been used";
     public static final String DATA_NOTFOUND_USERNAME = "Username is not found";

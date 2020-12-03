@@ -1,5 +1,6 @@
 package com.cnweb2020.restAPI;
 
+import com.cnweb2020.Json2Model.CodeAndMessage;
 import com.cnweb2020.Json2Model.Json2Model;
 import com.cnweb2020.Json2Model.JsonReturnModel;
 import com.cnweb2020.model.OrdersModel;
@@ -15,17 +16,19 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/api-checkout-with-default-info")
 public class CheckoutWithDefaultInfo extends HttpServlet {
-
     @Inject
     private IOrdersService service;
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         ObjectMapper objectMapper = new ObjectMapper();
-        OrdersModel ordersModel = Json2Model.of(request.getReader()).toModel(OrdersModel.class);
-        JsonReturnModel json = service.checkoutWithDefaultInfo(ordersModel);
-        objectMapper.writeValue(response.getOutputStream(), json);
+        try {
+            OrdersModel ordersModel = Json2Model.of(request.getReader()).toModel(OrdersModel.class);
+            JsonReturnModel json = service.checkoutWithDefaultInfo(ordersModel);
+            objectMapper.writeValue(response.getOutputStream(), json);
+        }catch (Exception e) {
+            objectMapper.writeValue(response.getOutputStream(),
+                    new JsonReturnModel(CodeAndMessage.DATA_INVALID, CodeAndMessage.DATA_INVALID_JSON, null));
+        }
     }
-
 }

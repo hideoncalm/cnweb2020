@@ -9,6 +9,8 @@ import com.cnweb2020.model.UserModel;
 import com.cnweb2020.service.iService.IUserService;
 
 import javax.inject.Inject;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -23,13 +25,16 @@ public class UserService implements IUserService {
     @Override
     public JsonReturnModel login(String userAccount, String password) {
         if(userAccount.contains("<script>") || password.contains("<script>"))
-            return new JsonReturnModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_INVALID_USERNAME, null);
-        int userId = userDAO.findUserByAccount(userAccount, password); // tra ve id or -1;
-        if (userId == -1)
-            return new JsonReturnModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_INVALID_USERNAME, null);
-        else if (userId == -2)
-            return new JsonReturnModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_NOTFOUND_PASSWORD, null);
-        else return new JsonReturnModel(CodeAndMessage.SUCCESS, CodeAndMessage.SUCCESS_MESSAGE, userId);
+            return new JsonReturnModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_INVALID_PASSWORD, null);
+        UserModel userModel = userDAO.findUserByAccount(userAccount, password); // tra ve id or -1;
+        if(userModel == null)
+            return new JsonReturnModel(CodeAndMessage.DATA_NOTFOUND, CodeAndMessage.DATA_INVALID_PASSWORD, null);
+        else {
+            Map<String, Integer> map = new HashMap<>();
+            map.put("userId", userModel.getId());
+            map.put("role", userModel.getRole());
+            return new JsonReturnModel(CodeAndMessage.SUCCESS, CodeAndMessage.SUCCESS_MESSAGE, map);
+        }
     }
 
     @Override

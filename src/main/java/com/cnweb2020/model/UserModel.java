@@ -2,12 +2,17 @@ package com.cnweb2020.model;
 
 public class UserModel{
     private int id;
+    private int role;
     private String account;
     private String password;
     private String fullName;
     private String phone;
     private String email;
     private String address;
+
+    public int getRole() { return role; }
+
+    public void setRole(int role) { this.role = role; }
 
     public int getId() {
         return id;
@@ -64,5 +69,5 @@ public class UserModel{
     public void setAddress(String address) {
         this.address = address;
     }
-    
+
 }

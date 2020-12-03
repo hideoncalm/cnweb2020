@@ -1,5 +1,6 @@
 package com.cnweb2020.restAPI;
 
+import com.cnweb2020.Json2Model.CodeAndMessage;
 import com.cnweb2020.Json2Model.Json2Model;
 import com.cnweb2020.Json2Model.JsonReturnModel;
 import com.cnweb2020.model.ProductModel;
@@ -17,15 +18,19 @@ import java.io.IOException;
 public class FindProductByName extends HttpServlet {
     @Inject
     private IProductService productService;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         ObjectMapper objectMapper = new ObjectMapper();
-
-        ProductModel productModel = Json2Model.of(request.getReader()).toModel(ProductModel.class);
-        String productName = productModel.getName();
-
-        JsonReturnModel jsonModel = productService.findByName(productName);
-        objectMapper.writeValue(response.getOutputStream(),jsonModel);
+        try {
+            ProductModel productModel = Json2Model.of(request.getReader()).toModel(ProductModel.class);
+            String productName = productModel.getName();
+            JsonReturnModel jsonModel = productService.findByName(productName);
+            objectMapper.writeValue(response.getOutputStream(), jsonModel);
+        } catch (Exception e) {
+            objectMapper.writeValue(response.getOutputStream(),
+                    new JsonReturnModel(CodeAndMessage.DATA_INVALID, CodeAndMessage.DATA_INVALID_JSON, null));
+        }
     }
 }
