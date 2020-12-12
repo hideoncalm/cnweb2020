@@ -4,9 +4,10 @@ package com.cnweb2020.DAO;
 import com.cnweb2020.DAO.iDAO.IProductDAO;
 import com.cnweb2020.mapper.ProductMapper;
 import com.cnweb2020.model.ProductModel;
+
 import java.util.List;
 
-public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO{
+public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO {
 
     @Override
     public List<ProductModel> findAll() {
@@ -30,8 +31,9 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
 
     @Override
     public List<ProductModel> findByName(String productName) {
+        productName = "%" + productName + "%";
         List<ProductModel> products;
-        String sql = "select * from product where name = ?";
+        String sql = "select * from product where name like ?";
         products = query(sql, new ProductMapper(), productName);
         return products;
     }
